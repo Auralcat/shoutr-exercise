@@ -1,2 +1,10 @@
 <h1>Dashboards</h1>
-<p>To be completed with the actual dashboard for Shoutr.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ye7FKc1JQe4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<%= form_for @shout do |form| %>
+    <%= form.text_field :body, placeholder: "Shout here!", required: true %>
+    <%= form.submit "Shout!" %>
+<% end %>
+
+<%= render @shouts %>

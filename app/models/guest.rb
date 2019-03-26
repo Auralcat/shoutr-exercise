@@ -3,4 +3,8 @@ class Guest
   def email
     ""
   end
+
+  def liked?(*args)
+    false
+  end
 end

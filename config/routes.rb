@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'followers/index'
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'dashboards#show'
   end
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resource :session, only: [:create]
 
   resources :users, only: [:create, :show] do
+    resources :followers, only: [:index]
     member do
       post "follow" => "followed_users#create"
       delete "unfollow" => "followed_users#destroy"

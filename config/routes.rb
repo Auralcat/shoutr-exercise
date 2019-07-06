@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   root to: 'homes#show'
 
+  resource :search, only: [:show]
+
   post 'text_shouts' => 'shouts#create', defaults: { content_type: TextShout }
   post 'photo_shouts' => 'shouts#create', defaults: { content_type: PhotoShout }
 
@@ -15,6 +17,9 @@ Rails.application.routes.draw do
       delete 'like' => 'likes#destroy'
     end
   end
+
+  resources :shouts, only: [:show]
+
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
   resource :session, only: [:create]
 
